@@ -23,13 +23,14 @@ jobs:
 
     - name: Build IPA (unsigned)
       run: |
-        xcodebuild \
-          -project VisionClaw.xcodeproj \
-          -scheme VisionClaw \
-          -configuration Release \
-          -sdk iphoneos \
-          -derivedDataPath build \
-          CODE_SIGNING_ALLOWED=NO
+       cd VisionClaw
+       xcodebuild \
+       -project VisionClaw.xcodeproj \
+       -scheme VisionClaw \
+       -configuration Release \
+       -sdk iphoneos \
+       -derivedDataPath build \
+       CODE_SIGNING_ALLOWED=NO
 
     - name: Package IPA
       run: |
