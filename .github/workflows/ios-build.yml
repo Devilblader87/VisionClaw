@@ -23,7 +23,7 @@ jobs:
 
     - name: Build IPA (unsigned)
       run: |
-       cd VisionClaw
+       ls -la
        xcodebuild \
        -project VisionClaw.xcodeproj \
        -scheme VisionClaw \
@@ -34,9 +34,10 @@ jobs:
 
     - name: Package IPA
       run: |
-        mkdir Payload
-        cp -R build/Build/Products/Release-iphoneos/*.app Payload/
-        zip -r VisionClaw.ipa Payload
+       mkdir Payload
+       cp -R build/Build/Products/Release-iphoneos/*.app Payload/
+       zip -r VisionClaw.ipa Payload
+
 
     - name: Upload IPA
       uses: actions/upload-artifact@v4
